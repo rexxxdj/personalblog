@@ -538,6 +538,8 @@ p {
   line-height: 18px;
   padding-left: 8px;
   font-size:12px;
+  border-right: 1px solid #7f7f7f;
+  padding-right: 8px;
 }
 .name-author a {
   text-decoration: none;
