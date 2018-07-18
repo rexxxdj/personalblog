@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rexxx | Home</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="http://dzyngiri.com/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="http://dzyngiri.com/favicon.png" type="image/x-icon" />
+    <meta name="description" content="This is a Portfolio & Blog by Rexxx">
+    <meta name="keywords" content="free, template, bootstrap, responsive">
+    <meta name="author" content="Rexxx">
+    <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../static/css/responsive.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../static/css/style.css" type="text/css" media="screen">
+	  <link rel="stylesheet" href="../static/css/touchTouch.css" type="text/css" media="screen">
+	  <link rel="stylesheet" href="../static/css/kwicks-slider.css" type="text/css" media="screen">
+	  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	  <script type="text/javascript" src="../static/js/jquery.js"></script>
+    <script type="text/javascript" src="../static/js/superfish.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.flexslider-min.js"></script>
+	  <script type="text/javascript" src="../static/js/jquery.kwicks-1.5.1.js"></script>
+	  <script type="text/javascript" src="../static/js/jquery.easing.1.3.js"></script>
+	  <script type="text/javascript" src="../static/js/jquery.cookie.js"></script>    
+	  <script type="text/javascript" src="../static/js/touchTouch.jquery.js"></script>
+	  <script type="text/javascript">
+      if($(window).width()>1024){document.write("<"+"script src='../static/js/jquery.preloader.js'></"+"script>");}
+    </script>
+    <script>
+      jQuery(window).load(function() {	
+		  $x = $(window).width();		
+      if($x > 1024)
+      {
+        jQuery("#content .row").preloader();}	
+        jQuery('.magnifier').touchTouch();			
+        jQuery('.spinner').animate({'opacity':0},1000,'easeOutCubic',function (){jQuery(this).css('display','none')});
+      });
+    </script>
+	<!--[if lt IE 8]>
+  		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>  
+ 	<![endif]-->
+	<!--[if (gt IE 9)|!(IE)]><!-->
+	<!--<![endif]-->
+	<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" href="css/docs.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+  <![endif]-->
+  </head>
+  <body>
+    <div class="spinner"></div> 
+    <!-- header start -->
+    <header>
+      <div class="container clearfix">
+        <div class="row">
+          <div class="span12">
+            <div class="navbar navbar_">
+              <div class="container">
+                <h1 class="brand brand_">
+                  <a href="index.html">
+                    <img alt="" src="../static/img/logo.png">
+                  </a>
+                </h1>
+                <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu 
+                  <span class="icon-bar"></span>
+                </a>
+                <div class="nav-collapse nav-collapse_  collapse">
+                  <ul class="nav sf-menu">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="vc.html">VC</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="bg-content">
+      <div class="container">
+        <div class="row">
+          <div class="span12"> 
+          <!-- slider -->
+            <div class="flexslider">
+              <ul class="slides">
+                {% for slide in slides%}
+                <li> <img src="{{ slide.image }}" alt="" > </li>
+                {% endfor%}
+              </ul>
+            </div>
+            <span id="responsiveFlag"></span>
+            <div class="block-slogan">
+              <h2>Hi!</h2>
+              <div>
+                <p>This site was developed in Python/Django + Bootstrap in order to practice my skills.
+                  <br>The purpose of this site is to create my own blog and visiting card.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <!-- content -->      
+      <div id="content" class="content-extra">
+        <div class="ic"></div>        
+        <div class="row-1">
+          <div class="container">
+            <div class="row">
+              <article class="span12">
+                <h4>Last article from blog</h4>
+              </article>
+              <ul class="thumbnails thumbnails-1">
+                <li class="span3">
+                  <div class="thumbnail thumbnail-1">
+                    <h3>Programming</h3>                    
+                    {% for p in programing %}
+                    <img  src="{{p.image}}" alt="">
+                    <section> 
+                		  <a href="#"><h3>{{p.title}}</h3></a>
+                	    <div class="meta">
+                        <time datetime="2012-11-09" class="date-1"><i class="icon-calendar"></i> {{p.createdate}}</time>
+                        <div class="name-author"><i class="icon-user"></i> <a href="#">{{p.author}}</a></div>
+                        <a href="#" class="comments"><i class="icon-comment"></i> {{p.commentscnt}} comments</a>
+                      </div> 
+                      <div class="clear"></div>
+                      <p>{{p.smallcontent}}</p>
+                      <a href="#" class="btn btn-1">Read More</a>
+                    </section>
+                    {% endfor %}
+                  </div>
+                </li>
+                <li class="span3">
+                  <div class="thumbnail thumbnail-1">
+                    <h3>Databases</h3>
+                    {% for d in databases %}
+                    <img  src="{{d.image}}" alt="">
+                    <section> 
+                      <a href="#"><h3>{{d.title}}</h3></a>
+                      <div class="meta">
+                        <time datetime="2012-11-09" class="date-1"><i class="icon-calendar"></i> {{d.createdate}}</time>
+                        <div class="name-author"><i class="icon-user"></i> <a href="#">{{d.author}}</a></div>
+                        <a href="#" class="comments"><i class="icon-comment"></i> {{d.commentscnt}} comments</a>
+                      </div> 
+                      <div class="clear"></div>
+                      <p>{{d.smallcontent}}</p>
+                      <a href="#" class="btn btn-1">Read More</a>
+                    </section>
+                    {% endfor %}
+                  </div>
+                </li>
+                <li class="span3">
+                  <div class="thumbnail thumbnail-1">
+                    <h3>Work</h3>
+                    {% for w in work %}
+                    <img  src="{{w.image}}" alt="">
+                    <section> 
+                      <a href="#"><h3>{{w.title}}</h3></a>
+                      <div class="meta">
+                        <time datetime="2012-11-09" class="date-1"><i class="icon-calendar"></i> {{w.createdate}}</time>
+                        <div class="name-author"><i class="icon-user"></i> <a href="#">{{w.author}}</a></div>
+                        <a href="#" class="comments"><i class="icon-comment"></i> {{w.commentscnt}} comments</a>
+                      </div> 
+                      <div class="clear"></div>
+                      <p>{{w.smallcontent}}</p>
+                      <a href="#" class="btn btn-1">Read More</a>
+                    </section>
+                    {% endfor %}
+                  </div>
+                </li>
+                <li class="span3">
+                  <div class="thumbnail thumbnail-1">
+                    <h3>Other</h3>
+                    {% for o in other %}
+                    <img  src="{{o.image}}" alt="">
+                    <section> 
+                      <a href="#"><h3>{{o.title}}</h3></a>
+                      <div class="meta">
+                        <time datetime="2012-11-09" class="date-1"><i class="icon-calendar"></i> {{o.createdate}}</time>
+                        <div class="name-author"><i class="icon-user"></i> <a href="#">{{o.author}}</a></div>
+                        <a href="#" class="comments"><i class="icon-comment"></i> {{o.commentscnt}} comments</a>
+                      </div> 
+                      <div class="clear"></div>
+                      <p>{{o.smallcontent}}</p>
+                      <a href="#" class="btn btn-1">Read More</a>
+                    </section>
+                    {% endfor %}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer>
+      <div class="container clearfix">
+        <ul class="list-social pull-right">
+          <li><a class="icon-1" href="#"></a></li>
+          <li><a class="icon-2" href="#"></a></li>
+          <li><a class="icon-3" href="#"></a></li>
+          <li><a class="icon-4" href="#"></a></li>
+        </ul>
+        <div class="privacy pull-left">&copy; 2018 | created by Rexxx</div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
